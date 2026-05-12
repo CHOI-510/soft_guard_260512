@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "video_id": "ac4.mp4",
+    "timestamp_in_video": "00:04-00:08"
+  },
+  "event_stream": {
+    "event_title": "교차로 버스-보행자 아차사고",
+    "risk_level": 8,
+    "location_type": "교차로 무단횡단 지점",
+    "involved_actors": [
+      "보행자",
+      "버스"
+    ],
+    "triggered_action": [
+      "관제센터 알림"
+    ]
+  },
+  "report_data": {
+    "event_category": "아차사고",
+    "severity_category": "아차사고",
+    "ego_vehicle_status": "정차 중 목격",
+    "environmental_factors": {
+      "weather": "맑음",
+      "time_of_day": "주간"
+    },
+    "sequence_of_events": [
+      "자차(블랙박스 차량)가 교차로에서 정차 중입니다.",
+      "보행자가 우측에서 등장하여 신호등이 없는 교차로 지점을 무단 횡단하기 시작합니다.",
+      "우측에서 녹색 버스가 우회전을 시도합니다.",
+      "버스가 우회전하는 경로와 보행자의 횡단 경로가 겹치며 버스가 보행자 바로 앞을 스쳐 지나갑니다.",
+      "보행자는 버스와의 충돌 없이 횡단을 완료합니다."
+    ],
+    "root_cause": "보행자의 부주의한 무단 횡단과 우회전 버스 운전자의 전방 주시 미흡이 겹쳐 아차사고가 발생했습니다."
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "video_id": "ac7.mp4",
+    "timestamp_in_video": "00:03-00:08"
+  },
+  "event_stream": {
+    "event_title": "교차로 보행자-버스 및 승용차 근접 통과 아차사고",
+    "risk_level": 6,
+    "location_type": "신호등 있는 횡단보도 (교차로)",
+    "involved_actors": [
+      "버스",
+      "일반 승용차 (SUV)",
+      "보행자",
+      "자전거"
+    ],
+    "triggered_action": [
+      "관제센터 알림"
+    ]
+  },
+  "report_data": {
+    "event_category": "아차사고",
+    "severity_category": "아차사고",
+    "ego_vehicle_status": "정차 중 목격",
+    "environmental_factors": {
+      "weather": "흐림",
+      "time_of_day": "주간"
+    },
+    "sequence_of_events": [
+      "자차 정지선 대기 중.",
+      "신호 변경 후, 교차로 오른쪽 횡단보도로 보행자들이 진입하기 시작함.",
+      "교차로 좌측 정지선에서 대기하던 초록색 버스가 우회전을 시도하며 횡단보도에 근접하여 통과함.",
+      "동시에 반대편 차선에서 직진하던 흰색 SUV 차량이 좌회전하며 보행자들이 건너는 횡단보도를 가로질러 통과함.",
+      "보행자와 자전거 운전자는 차량들과 근접하여 통과했으나, 충돌은 발생하지 않고 안전하게 횡단을 완료함."
+    ],
+    "root_cause": "교차로 내 동시 다발적인 차량 회전 및 보행자 횡단으로 인한 잠재적 충돌 위험 발생"
+  }
+}

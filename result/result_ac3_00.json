@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "video_id": "ac3.mp4",
+    "timestamp_in_video": "00:05-00:09"
+  },
+  "event_stream": {
+    "event_title": "정차 중 보행자 신호 위반 횡단 목격",
+    "risk_level": 7,
+    "location_type": "신호등 있는 횡단보도",
+    "involved_actors": [
+      "보행자",
+      "일반 승용차(블랙박스 차량)"
+    ],
+    "triggered_action": [
+      "관제센터 알림"
+    ]
+  },
+  "report_data": {
+    "event_category": "아차사고",
+    "severity_category": "아차사고",
+    "ego_vehicle_status": "정차 중 목격",
+    "environmental_factors": {
+      "weather": "맑음",
+      "time_of_day": "주간"
+    },
+    "sequence_of_events": [
+      "1. 블랙박스 차량이 신호등 있는 횡단보도 앞에서 정차해 있습니다.",
+      "2. 블랙박스 차량의 전방 신호등은 초록불을 표시하고 있습니다.",
+      "3. 보행자가 우측 도로변에서 횡단보도로 진입하여 도로를 건너기 시작합니다.",
+      "4. 보행자는 차량 신호가 초록불임에도 불구하고 횡단보도를 계속 건넙니다.",
+      "5. 충돌은 발생하지 않았지만, 보행자의 신호 위반으로 인해 아차사고 위험이 있었습니다."
+    ],
+    "root_cause": "보행자가 차량 신호(녹색불)에 위반하여 횡단보도를 건넘"
+  }
+}

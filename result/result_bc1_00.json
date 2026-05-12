@@ -1,0 +1,36 @@
+{
+  "metadata": {
+    "video_id": "bc1.mp4",
+    "timestamp_in_video": "00:00-00:02"
+  },
+  "event_stream": {
+    "event_title": "주유소 진출입 차량 및 자전거 아차사고",
+    "risk_level": 4,
+    "location_type": "주유소 진출입로",
+    "involved_actors": [
+      "승용차(흰색)",
+      "자전거(2대)",
+      "자차(블랙박스 차량)"
+    ],
+    "triggered_action": [
+      "관제센터 알림"
+    ]
+  },
+  "report_data": {
+    "event_category": "아차사고",
+    "severity_category": "아차사고",
+    "ego_vehicle_status": "주행 중 목격",
+    "environmental_factors": {
+      "weather": "맑음",
+      "time_of_day": "주간"
+    },
+    "sequence_of_events": [
+      "1. 자차(블랙박스 차량)가 주유소 진입을 위해 서행하며 접근.",
+      "2. 주유소에서 흰색 승용차가 좌회전하여 진출하며 자차의 전방을 가로지름.",
+      "3. 자차는 흰색 승용차 통과 후 주유소 진입을 시도.",
+      "4. 이 때, 도로에서 주유소로 진입하는 자전거 2대가 자차의 전방을 가로지름.",
+      "5. 자차는 자전거 통과 후 주유소 진입을 완료."
+    ],
+    "root_cause": "주유소 진출입로에서 진출입 차량 및 자전거와 주행 차량 간의 통행 우선순위 불확실성 및 주의 의무 부족."
+  }
+}

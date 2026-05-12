@@ -1,0 +1,107 @@
+import os
+import time
+import json
+import argparse
+import google.genai as genai
+
+# 1. API 설정 및 예외 처리 (조기 종료)
+api_key = os.getenv("GOOGLE_API_KEY")
+if not api_key:
+    print("🚨 [오류] GOOGLE_API_KEY 환경 변수가 설정되지 않았습니다.")
+    print("파워셸에서 다음 명령어를 실행하세요: $env:GOOGLE_API_KEY='선생님의_API_키'")
+    exit(1)
+
+client = genai.Client(api_key=api_key)
+
+def get_next_filename(base_name="result", extension="json"):
+    """result00, result01... 형태로 다음 저장할 파일명을 결정함"""
+    index = 0
+    while True:
+        # {index:02d}는 숫자를 최소 2자리로 만들고 빈칸을 0으로 채움 (예: 00, 01, 10)
+        filename = f"{base_name}{index:02d}.{extension}"
+        if not os.path.exists(filename):
+            return filename
+        index += 1
+
+def save_json_result(data_text):
+    """문자열 형태의 JSON 데이터를 파일로 저장"""
+    filename = get_next_filename()
+    
+    # Gemini에서 받은 텍스트(JSON 문자열)를 실제 딕셔너리로 변환 (유효성 검사)
+    try:
+        json_data = json.loads(data_text)
+        with open(filename, 'w', encoding='utf-8') as f:
+            json.dump(json_data, f, ensure_ascii=False, indent=2)
+        print(f"✅ 분석 결과가 성공적으로 저장되었습니다: {filename}")
+    except json.JSONDecodeError:
+        print("❌ AI의 응답이 올바른 JSON 형식이 아닙니다. 텍스트로 저장합니다.")
+        with open(f"{filename}.txt", 'w', encoding='utf-8') as f:
+            f.write(data_text)
+
+def analyze_accident_video(video_path):
+    print(f"🎬 영상 업로드 중: {video_path}")
+    
+    try:
+        video_file = client.files.upload(file=video_path)
+    except Exception as e:
+        print(f"❌ 영상 업로드 실패: {e}")
+        exit(1)
+    
+    # 영상 처리 대기 (무한 대기 방지용 5분 타임아웃 추가)
+    max_wait_time = 300
+    start_time = time.time()
+    
+    while video_file.state == "PROCESSING":
+        if time.time() - start_time > max_wait_time:
+            print("\n❌ 영상 처리 시간 초과 (Timeout). 나중에 다시 시도하세요.")
+            exit(1)
+            
+        print(".", end="", flush=True)
+        time.sleep(2)
+        video_file = client.files.get(name=video_file.name)
+
+    if video_file.state == "FAILED":
+        print("\n❌ 구글 서버에서 영상 처리를 실패했습니다.")
+        exit(1)
+
+    print("\n🧠 AI 분석 중 (Gemini 2.5 Flash)...")
+    
+    # 프롬프트에 동적으로 파일명(os.path.basename)이 들어가도록 f-string 적용
+    prompt = f"""
+    제공된 블랙박스 사고 영상({os.path.basename(video_path)})을 분석하여 다음 JSON 형식으로만 답해줘.
+    {{
+      "video_name": "{os.path.basename(video_path)}",
+      "summary": "전체 상황 요약",
+      "actors": ["차량", "보행자", "오토바이" 등],
+      "risk_score": 1~10,
+      "details": {{
+        "weather": "날씨",
+        "cause": "사고 원인"
+      }}
+    }}
+    """
+
+    try:
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=[video_file, prompt],
+            config={"response_mime_type": "application/json"}
+        )
+        return response.text
+    except Exception as e:
+        print(f"❌ AI 분석 중 에러 발생: {e}")
+        exit(1)
+
+if __name__ == "__main__":
+    # 명령어 실행 시 영상 이름을 인자로 받도록 설정 (argparse 추가)
+    parser = argparse.ArgumentParser(description="사고 영상 분석 AI (Gemini 2.5 API)")
+    parser.add_argument("video_file", help="분석할 영상 파일 이름 또는 경로 (예: TS.mp4)")
+    args = parser.parse_args()
+
+    video_path = args.video_file
+
+    if os.path.exists(video_path):
+        json_result = analyze_accident_video(video_path)
+        save_json_result(json_result)
+    else:
+        print(f"❌ 영상을 찾을 수 없습니다: {video_path}")

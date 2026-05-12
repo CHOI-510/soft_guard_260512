@@ -1,0 +1,36 @@
+{
+  "metadata": {
+    "video_id": "ac5.mp4",
+    "timestamp_in_video": "00:04-00:07"
+  },
+  "event_stream": {
+    "event_title": "교차로 택시-보행자 차대사람 사고",
+    "risk_level": 7,
+    "location_type": "신호등 있는 횡단보도",
+    "involved_actors": [
+      "택시",
+      "보행자"
+    ],
+    "triggered_action": [
+      "관제센터 알림"
+    ]
+  },
+  "report_data": {
+    "event_category": "차대사람",
+    "severity_category": "경미한 접촉",
+    "ego_vehicle_status": "정차 중 목격",
+    "environmental_factors": {
+      "weather": "흐림",
+      "time_of_day": "해질녘"
+    },
+    "sequence_of_events": [
+      "1. 블랙박스 차량이 신호등이 있는 교차로에서 정차 중입니다.",
+      "2. 한 보행자가 좌측에서 우측으로 횡단보도를 건너기 시작합니다.",
+      "3. 우측 도로에서 한 택시가 교차로에 진입하며 우회전을 시도합니다.",
+      "4. 택시가 횡단보도를 건너던 보행자와 근접하게 접근하며, 보행자가 택시 앞에서 균형을 잃고 넘어집니다.",
+      "5. 택시 운전자는 즉시 차량을 정차합니다.",
+      "6. 보행자는 횡단보도 위에 넘어져 있습니다."
+    ],
+    "root_cause": "우회전 중인 택시가 횡단보도를 건너는 보행자에게 양보하지 않아 발생한 사고입니다."
+  }
+}

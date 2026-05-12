@@ -1,0 +1,58 @@
+import os
+import requests
+import argparse
+
+# 기본 경로 설정
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+RESULT_DIR = os.path.join(SCRIPT_DIR, "result")
+
+# 백엔드 서버 주소 (팀원에게 받은 주소로 변경하세요)
+SERVER_BASE_URL = "http://localhost:8080" 
+
+def upload_result(json_filename):
+    # 경로 보정 (사용자가 파일명만 넣었을 경우 result 폴더에서 찾음)
+    file_path = os.path.normpath(json_filename)
+    if not os.path.exists(file_path):
+        candidate_path = os.path.normpath(os.path.join(RESULT_DIR, file_path))
+        if os.path.exists(candidate_path):
+            file_path = candidate_path
+        else:
+            print(f"❌ 파일을 찾을 수 없습니다: {json_filename}")
+            return
+
+    print(f"📤 업로드 준비 중: {file_path}")
+    
+    try:
+        # 서버로 파일 전송 (multipart/form-data)
+        with open(file_path, 'rb') as f:
+            files = {'file': (os.path.basename(file_path), f, 'application/json')}
+            
+            # 서버에서 "이 json이 어떤 영상의 결과냐?"고 물어볼 수 있으므로 데이터 첨부
+            # 예: result_TS_00.json -> 원래 영상은 TS.mp4임을 서버가 알 수 있게
+            data = {'original_video': os.path.basename(file_path)} 
+            
+            print(f"🚀 서버로 전송 중... ({SERVER_BASE_URL}/api/results/upload)")
+            # 서버로 전송 중 (timeout을 60으로 변경)
+            upload_res = requests.post(
+                f"{SERVER_BASE_URL}/api/results/upload", 
+                files=files, 
+                data=data,
+                timeout=60
+            )
+            
+        if upload_res.status_code in [200, 201]:
+            print("✅ 서버 업로드 성공!")
+            print(f"서버 응답: {upload_res.text}")
+        else:
+            print(f"❌ 업로드 실패 (상태 코드: {upload_res.status_code})")
+            print(f"에러 내용: {upload_res.text}")
+            
+    except requests.exceptions.RequestException as e:
+        print(f"🚨 서버 통신 에러: {e}")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="분석 완료된 JSON 서버 업로드")
+    parser.add_argument("json_file", help="업로드할 json 파일 이름 (예: result_TS_00.json)")
+    args = parser.parse_args()
+
+    upload_result(args.json_file)

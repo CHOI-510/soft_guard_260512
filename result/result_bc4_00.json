@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "video_id": "bc4.mp4",
+    "timestamp_in_video": "00:06-00:08"
+  },
+  "event_stream": {
+    "event_title": "자전거도로에서 차도로 갑자기 진입하는 자전거와 차량 아차사고",
+    "risk_level": 8,
+    "location_type": "도로변 자전거도로",
+    "involved_actors": [
+      "일반 승용차",
+      "자전거"
+    ],
+    "collision_happened": false,
+    "incident_type": "near_miss",
+    "triggered_action": [
+      "관제센터 알림",
+      "인접 차량 위험 경고"
+    ]
+  },
+  "report_data": {
+    "event_category": "아차사고",
+    "severity_category": "아차사고",
+    "ego_vehicle_status": "사고 연루",
+    "environmental_factors": {
+      "weather": "맑음",
+      "time_of_day": "주간"
+    },
+    "sequence_of_events": [
+      "1. 자차(블랙박스 차량)가 도로 우측 차선을 따라 주행하고 있었음.",
+      "2. 한 사람이 도로변에 세워진 자전거에 탑승함.",
+      "3. 자전거가 후방을 확인하지 않고 갑자기 차도 쪽으로 방향을 틀어 진입함.",
+      "4. 자차 바로 앞으로 자전거가 끼어들면서 충돌 직전의 위험한 상황이 발생함."
+    ],
+    "root_cause": "자전거 탑승자가 후방의 교통 상황을 확인하지 않고 안전 미확보 상태로 차도로 진입한 것이 주된 원인임."
+  }
+}

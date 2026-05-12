@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "video_id": "bc2.mp4",
+    "timestamp_in_video": "00:02-00:05"
+  },
+  "event_stream": {
+    "event_title": "횡단보도 자전거 단독 넘어짐 사고",
+    "risk_level": 3,
+    "location_type": "신호등 있는 횡단보도",
+    "involved_actors": [
+      "자전거"
+    ],
+    "collision_happened": false,
+    "incident_type": "near_miss",
+    "triggered_action": [
+      "관제센터 알림"
+    ]
+  },
+  "report_data": {
+    "event_category": "단독 사고",
+    "severity_category": "아차사고",
+    "ego_vehicle_status": "정차 중 목격",
+    "environmental_factors": {
+      "weather": "흐림",
+      "time_of_day": "해질녘"
+    },
+    "sequence_of_events": [
+      "자전거가 횡단보도를 건너던 중 우측에서 나타남.",
+      "횡단보도 위에서 자전거가 균형을 잃고 단독으로 넘어짐.",
+      "다른 차량이나 보행자와의 물리적 접촉은 발생하지 않음.",
+      "자전거 운전자가 잠시 후 일어나 자리를 떠남."
+    ],
+    "root_cause": "자전거 운전자의 운전 미숙 또는 균형 상실로 인해 발생한 단독 넘어짐 사고로 추정됨."
+  }
+}

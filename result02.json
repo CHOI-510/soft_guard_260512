@@ -1,0 +1,13 @@
+{
+  "video_name": "dashcam_accident_video",
+  "summary": "A pedestrian attempts to cross a busy intersection, seemingly against the traffic signal, and is struck by a taxi, falling to the ground.",
+  "actors": [
+    "보행자",
+    "택시"
+  ],
+  "risk_score": 9,
+  "details": {
+    "weather": "흐림",
+    "cause": "보행자가 횡단보도 밖에서 무단횡단을 시도하다 주행 중인 택시와 충돌했습니다. 택시 운전자는 보행자를 미처 발견하지 못하고 충돌한 것으로 보입니다."
+  }
+}
