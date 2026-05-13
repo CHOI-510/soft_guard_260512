@@ -83,13 +83,12 @@ def analyze_accident_video(video_path):
         exit(1)
 
     print("\n🧠 AI 분석 중 (Gemini 2.5 Pro)...")
-    
-    # 프롬프트에 동적으로 파일명(os.path.basename)이 들어가도록 f-string 적용
-    prompt = f"""
+    prompt = """
     너는 스마트 시티의 'soft_guard' AI 관제 시스템이야.
     제공된 블랙박스 영상({os.path.basename(video_path)})을 1프레임 단위로 정밀하게 분석하여 데이터를 추출해줘.
     
     [중요 지시사항]
+    0. 출력 내용은 모두 한국어로 작성하라. JSON 값과 문장도 한국어로 작성하고, 가능한 경우 JSON 키도 한국어로 사용하라.
     1. 화면에 등장하는 차량의 종류(일반 승용차, 택시, 버스, 화물차, 오토바이, 자전거)를 절대 혼동하지 말고 정확히 식별할 것.
     2. 버스는 절대 SUV 또는 승용차로 쓰지 마. (승객석이 보이면 버스)
     3. 영상 속 교통 신호, 차로 방향을 명확히 분석하라.
@@ -102,36 +101,39 @@ def analyze_accident_video(video_path):
     10. 반드시 아래의 JSON 스키마 형식에 맞춰서 출력하고, 마크다운(```json)이나 다른 설명은 절대 포함하지 마.
 
     [JSON 스키마]
-    {{
-      "metadata": {{
+    {
+      "metadata": {
         "video_id": "분석한 영상의 파일명",
         "timestamp_in_video": "사고/위험 상황이 발생한 시간대 (예: '00:03-00:05')"
-      }},
-      "event_stream": {{
+      },
+      "event_stream": {
         "event_title": "상황에 대한 짧고 명확한 제목 (예: 이면도로 무단횡단 아동 차량 충돌 사고)",
-        "risk_level": 1~10 사이의 정수 (10이 가장 위험),
+        "risk_level": 10,
         "location_type": "사고 발생 위치 (예: 이면도로)",
         "involved_actors": ["객체1", "객체2"],
-        "collision_happened": true/false,
-        "incident_type": "collision 또는 near_miss",
+        "vehicleCount": 2,
+        "pedestrianCount": 1,
+        "pmCount": 0,
+        "collision_happened": true,
+        "incident_type": "collision",
         "triggered_action": ["관제센터 긴급 알림", "119 자동 신고 대기"]
-      }},
-      "report_data": {{
-        "event_category": "차대사람, 차대차 등",
+      },
+      "report_data": {
+        "event_category": "차대사람, 차대차 등 (참여한 행위자 수량 포함)",
         "severity_category": "중대 사고, 경미한 사고, 아차사고 중 택 1",
         "ego_vehicle_status": "자차의 상태",
-        "environmental_factors": {{
+        "environmental_factors": {
           "weather": "날씨",
           "time_of_day": "주야간"
-        }},
+        },
         "sequence_of_events": [
           "1. 아동이 우측에서 좌측으로 무단횡단 시도.",
-          "2. 좌측에서 직진하던 검은색 승용차와 충돌함.",
+          "2. 좌측에서 직진하던 검은색 승용차 1대와 충돌함.",
           "3. 아동이 도로에 넘어짐."
         ],
         "root_cause": "위험 상황의 근본 원인"
-      }}
-    }}
+      }
+    }
     """
 
     try:
@@ -172,7 +174,7 @@ if __name__ == "__main__":
         saved_filename = save_json_result(json_result, video_path)  # ⭐ 파일명 반환
         
         # ⭐ 분석 결과 파일명을 워크플로우 로그에 저장 (3번에서 사용)
-        set_workflow_value("analyze", "analyzed_result", saved_filename)
+        set_workflow_value("analyze", "output_result", saved_filename)
         update_workflow_step("analyze", "completed", {
             "input_video": video_filename,
             "output_result": saved_filename

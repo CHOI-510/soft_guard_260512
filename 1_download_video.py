@@ -55,28 +55,65 @@ def download_pending_video():
             print("💤 현재 서버에 대기 중인 새 영상이 없습니다.")
             update_workflow_step("download", "completed", {"message": "대기 영상 없음"})
             return None
+
+        print("🔎 서버에서 받은 pending_videos 목록:")
+        for idx, item in enumerate(pending_videos, start=1):
+            if isinstance(item, dict):
+                print(f"  {idx}. dict videoUrl={item.get('videoUrl')} eventId={item.get('eventId')}")
+            else:
+                print(f"  {idx}. {item}")
+
+        last_downloaded = get_workflow_value("download", "downloaded_video")
+        if last_downloaded:
+            print(f"⏳ 마지막으로 다운로드한 영상: {last_downloaded}")
         
         # ==========================================
         # 💡 [수정된 부분] 딕셔너리 데이터 분해 로직
         # ==========================================
-        target_item = pending_videos[0]
-        
-        if isinstance(target_item, dict):
-            # 백엔드가 {'eventId': 2, 'videoUrl': 'https://***/The.mp4'} 형태로 준 경우
-            video_url = target_item.get('videoUrl', '')
-            
-            # URL의 맨 마지막 부분만 잘라내서 파일명으로 사용 (예: The.mp4)
-            target_video = video_url.split('/')[-1]
-            
-            # 풀 주소를 주었으면 그것을 쓰고, 아니면 원래 규칙대로 조립
-            if video_url.startswith("http"):
-                download_url = video_url
+        last_downloaded = get_workflow_value("download", "downloaded_video")
+        selected_item = None
+        selected_target = None
+        selected_url = None
+
+        def parse_pending(item):
+            if isinstance(item, dict):
+                video_url = item.get('videoUrl', '')
+                if not video_url:
+                    return None, None
+                target = video_url.split('/')[-1]
+                url = video_url if video_url.startswith("http") else f"{SERVER_BASE_URL}/api/videos/download/{target}"
             else:
-                download_url = f"{SERVER_BASE_URL}/api/videos/download/{target_video}"
-        else:
-            # 예전처럼 ["The.mp4"] 형태로 파일명만 준 경우를 위한 안전장치
-            target_video = target_item
-            download_url = f"{SERVER_BASE_URL}/api/videos/download/{target_video}"
+                target = item
+                url = f"{SERVER_BASE_URL}/api/videos/download/{target}"
+            return target, url
+
+        for item in pending_videos:
+            target, url = parse_pending(item)
+            if not target:
+                continue
+            if last_downloaded and target == last_downloaded and os.path.exists(os.path.join(VIDEO_DIR, target)):
+                print(f"⏭ 기존에 다운로드한 영상 건너뜀: {target}")
+                continue
+            selected_item = item
+            selected_target = target
+            selected_url = url
+            break
+
+        if selected_item is None:
+            if last_downloaded and os.path.exists(os.path.join(VIDEO_DIR, last_downloaded)):
+                print(f"💤 새 영상 없음. 기존 다운로드된 영상 사용: {last_downloaded}")
+                update_workflow_step("download", "completed", {
+                    "message": "새 영상 없음, 기존 영상 사용",
+                    "downloaded_video": last_downloaded,
+                    "save_path": os.path.join(VIDEO_DIR, last_downloaded)
+                })
+                return last_downloaded
+            print("❌ 새 영상이 없고 기존 다운로드 파일도 없습니다.")
+            update_workflow_step("download", "failed", {"error": "새 영상 없음, 기존 다운로드 파일 없음"})
+            return None
+
+        target_video = selected_target
+        download_url = selected_url
 
         print(f"🎯 타겟 영상 파일명: {target_video}")
         print(f"📥 다운로드 주소: {download_url}")

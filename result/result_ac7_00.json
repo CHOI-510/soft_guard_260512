@@ -1,37 +1,39 @@
 {
   "metadata": {
     "video_id": "ac7.mp4",
-    "timestamp_in_video": "00:03-00:08"
+    "timestamp_in_video": "00:07-00:09"
   },
   "event_stream": {
-    "event_title": "교차로 보행자-버스 및 승용차 근접 통과 아차사고",
-    "risk_level": 6,
-    "location_type": "신호등 있는 횡단보도 (교차로)",
+    "event_title": "교차로 횡단보도 보행자-차량 충돌 사고",
+    "risk_level": 8,
+    "location_type": "교차로 횡단보도",
     "involved_actors": [
-      "버스",
-      "일반 승용차 (SUV)",
       "보행자",
-      "자전거"
+      "승용차"
     ],
+    "vehicleCount": 1,
+    "pedestrianCount": 3,
+    "pmCount": 0,
+    "collision_happened": true,
+    "incident_type": "collision",
     "triggered_action": [
-      "관제센터 알림"
+      "관제센터 긴급 알림",
+      "119 자동 신고 대기"
     ]
   },
   "report_data": {
-    "event_category": "아차사고",
-    "severity_category": "아차사고",
-    "ego_vehicle_status": "정차 중 목격",
+    "event_category": "차대사람 (차량 1대, 보행자 3명)",
+    "severity_category": "경미한 사고",
+    "ego_vehicle_status": "교차로에서 신호 대기 중 정차",
     "environmental_factors": {
       "weather": "흐림",
       "time_of_day": "주간"
     },
     "sequence_of_events": [
-      "자차 정지선 대기 중.",
-      "신호 변경 후, 교차로 오른쪽 횡단보도로 보행자들이 진입하기 시작함.",
-      "교차로 좌측 정지선에서 대기하던 초록색 버스가 우회전을 시도하며 횡단보도에 근접하여 통과함.",
-      "동시에 반대편 차선에서 직진하던 흰색 SUV 차량이 좌회전하며 보행자들이 건너는 횡단보도를 가로질러 통과함.",
-      "보행자와 자전거 운전자는 차량들과 근접하여 통과했으나, 충돌은 발생하지 않고 안전하게 횡단을 완료함."
+      "1. 우측에서 흰색 승용차 1대가 교차로를 직진하고, 동시에 보행자 3명이 횡단보도를 건너기 시작함.",
+      "2. 승용차가 횡단하는 보행자들을 발견하고 급제동했으나, 선두에 있던 보행자 1명과 충돌함.",
+      "3. 충격으로 보행자의 자세가 뒤로 무너졌으나, 넘어지지는 않고 다시 걸어감."
     ],
-    "root_cause": "교차로 내 동시 다발적인 차량 회전 및 보행자 횡단으로 인한 잠재적 충돌 위험 발생"
+    "root_cause": "운전자의 전방 주시 태만 및 보행자 보호 의무 위반"
   }
 }

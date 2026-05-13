@@ -1,7 +1,7 @@
 import os
 import requests
 import time
-import json  # 🌟 json 모듈 추가
+import json
 from workflow_utils import update_workflow_step, get_workflow_value, set_workflow_value
 
 # 기본 경로 설정
@@ -31,18 +31,23 @@ def upload_result(json_filename):
     # 재시도 로직 포함
     for attempt in range(MAX_RETRIES):
         try:
-            # ⭐ [수정된 부분] 첨부파일 방식이 아닌, JSON 내용을 읽어서 텍스트 본문(Body)으로 전송
+            # 1. 파일에서 JSON 데이터를 읽어옵니다.
             with open(file_path, 'r', encoding='utf-8') as f:
                 json_payload = json.load(f)
+                
+            # ⭐ 2. 백엔드 개발자 성공 코드 이식: 한글 깨짐 방지 및 명시적 바이트 인코딩
+            payload_bytes = json.dumps(json_payload, ensure_ascii=False).encode("utf-8")
+            headers = {"Content-Type": "application/json"}
                 
             print(f"🚀 서버로 전송 중... ({SERVER_BASE_URL}/api/results/upload) - 시도 {attempt + 1}/{MAX_RETRIES}")
             upload_res = requests.post(
                 f"{SERVER_BASE_URL}/api/results/upload", 
-                json=json_payload,  # 🌟 files= 대신 json= 을 사용 (Content-Type이 application/json으로 자동 세팅됨)
+                headers=headers,     # ⭐ 명시적 헤더 추가
+                data=payload_bytes,  # ⭐ 바이트 단위로 쪼갠 데이터 전송
                 timeout=60
             )
             
-            # ⭐ 서버 응답 검증
+            # 서버 응답 검증
             if upload_res.status_code in [200, 201]:
                 print("✅ 서버 업로드 성공!")
                 print(f"서버 응답: {upload_res.text}")
@@ -75,10 +80,10 @@ if __name__ == "__main__":
     if args.json_file:
         json_filename = args.json_file
     else:
-        json_filename = get_workflow_value("analyze", "output_result")
+        json_filename = get_workflow_value("analyze", "output_result") or get_workflow_value("analyze", "analyzed_result")
         if not json_filename:
             print("❌ 분석한 파일이 없습니다. 먼저 2_analyze_video.py를 실행하세요.")
-            print("또는 파일명을 인자로 제공하세요: python 3_upload_result.py result_ac7_00.json")
+            print("또는 파일명을 인자로 제공하세요: python 3_upload_result.py result_The_00.json")
             update_workflow_step("upload", "failed", {"error": "분석된 파일 없음"})
             exit(1)
         print(f"📥 이전 분석 결과 사용: {json_filename}")

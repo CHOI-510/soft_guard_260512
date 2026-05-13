@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "video_id": "LX2000_01_00_007_20211211-14h37m36s.mp4",
+    "timestamp_in_video": "00:04-00:07"
+  },
+  "event_stream": {
+    "event_title": "이면도로 주정차 차량 사이 보행자 횡단 아차사고",
+    "risk_level": 3,
+    "location_type": "이면도로 교차로",
+    "involved_actors": [
+      "자차 (승용차)",
+      "보행자"
+    ],
+    "vehicleCount": 5,
+    "pedestrianCount": 1,
+    "pmCount": 0,
+    "collision_happened": false,
+    "incident_type": "near_miss",
+    "triggered_action": [
+      "관제센터 기록 및 모니터링"
+    ]
+  },
+  "report_data": {
+    "event_category": "차대사람",
+    "severity_category": "아차사고",
+    "ego_vehicle_status": "교차로 서행 진입 중",
+    "environmental_factors": {
+      "weather": "맑음",
+      "time_of_day": "주간"
+    },
+    "sequence_of_events": [
+      "1. 자차가 이면도로 교차로를 시속 14km/h로 서행하고 있음.",
+      "2. 우측에 주차된 화물차 뒤에서 보행자 1명이 나타나 도로를 횡단하기 시작함.",
+      "3. 자차 운전자가 보행자를 인지하고 감속 없이 통과했으며, 보행자는 안전하게 도로를 건너 좌측으로 사라짐.",
+      "4. 물리적 충돌은 발생하지 않음."
+    ],
+    "root_cause": "주정차된 차량으로 인해 발생한 사각지대에서 보행자가 갑자기 나타나 도로를 횡단함."
+  }
+}

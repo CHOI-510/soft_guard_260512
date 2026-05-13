@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "video_id": "00-00-10_00-00-19.mp4",
+    "timestamp_in_video": "00:01-00:03"
+  },
+  "event_stream": {
+    "event_title": "교차로 차선 급변경으로 인한 아차사고",
+    "risk_level": 5,
+    "location_type": "교차로",
+    "involved_actors": [
+      "차선 변경 흰색 승용차",
+      "직진 흰색 승용차"
+    ],
+    "vehicleCount": 6,
+    "pedestrianCount": 0,
+    "pmCount": 0,
+    "collision_happened": false,
+    "incident_type": "near_miss",
+    "triggered_action": [
+      "위험 운전 차량 데이터 기록"
+    ]
+  },
+  "report_data": {
+    "event_category": "차대차",
+    "severity_category": "아차사고",
+    "ego_vehicle_status": "정차 중",
+    "environmental_factors": {
+      "weather": "흐림",
+      "time_of_day": "주간"
+    },
+    "sequence_of_events": [
+      "1. 자차는 교차로에서 정차 중.",
+      "2. 00:02경, 우측 차선에 있던 흰색 승용차(기아 K7)가 방향지시등 없이 좌측으로 급하게 차선을 변경함.",
+      "3. 좌측 차선에서 이미 주행 중이던 다른 흰색 승용차(현대 아반떼)와 충돌할 뻔했으나, 충돌은 발생하지 않음."
+    ],
+    "root_cause": "우측 차량의 방향지시등 미점등 및 안전 미확보 상태에서의 무리한 차선 변경"
+  }
+}

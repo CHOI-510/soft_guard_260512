@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "video_id": "00:00.mp4",
+    "timestamp_in_video": "00:01-00:04"
+  },
+  "event_stream": {
+    "event_title": "교차로 좌회전 SUV와 직진 오토바이 충돌 사고",
+    "risk_level": 10,
+    "location_type": "교차로",
+    "involved_actors": [
+      "SUV",
+      "오토바이"
+    ],
+    "vehicleCount": 2,
+    "pedestrianCount": 0,
+    "pmCount": 0,
+    "collision_happened": true,
+    "incident_type": "collision",
+    "triggered_action": [
+      "관제센터 긴급 알림",
+      "119 자동 신고 대기"
+    ]
+  },
+  "report_data": {
+    "event_category": "차대차 (2대)",
+    "severity_category": "중대 사고",
+    "ego_vehicle_status": "신호 대기 중 정차",
+    "environmental_factors": {
+      "weather": "흐림",
+      "time_of_day": "황혼"
+    },
+    "sequence_of_events": [
+      "1. 우측 차로에서 직진하던 오토바이 1대가 교차로에 진입함.",
+      "2. 동일 방향에서 진입한 SUV가 좌회전을 시도하며 직진하던 오토바이와 충돌함.",
+      "3. 충격으로 오토바이와 운전자가 공중으로 튕겨 나간 후 도로에 쓰러짐."
+    ],
+    "root_cause": "좌회전 차량의 전방 주시 태만 및 우선 통행 차량 확인 미흡"
+  }
+}

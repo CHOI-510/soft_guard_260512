@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "video_id": "00-09.mp4",
+    "timestamp_in_video": "00:01-00:03"
+  },
+  "event_stream": {
+    "event_title": "도심 도로 차량 끼어들기 상황",
+    "risk_level": 2,
+    "location_type": "교차로 인근 도로",
+    "involved_actors": [
+      "자차",
+      "흰색 승용차"
+    ],
+    "vehicleCount": 5,
+    "pedestrianCount": 2,
+    "pmCount": 0,
+    "collision_happened": false,
+    "incident_type": "near_miss",
+    "triggered_action": [
+      "상황 기록 및 분석"
+    ]
+  },
+  "report_data": {
+    "event_category": "차대차",
+    "severity_category": "아차사고",
+    "ego_vehicle_status": "교차로 통과 후 직진 주행",
+    "environmental_factors": {
+      "weather": "흐림",
+      "time_of_day": "주간"
+    },
+    "sequence_of_events": [
+      "1. 자차가 1차로에서 직진 주행 중, 전방에 화물차가 있음.",
+      "2. 00:01초, 우측 차로에서 주행하던 흰색 승용차가 방향 지시등 없이 자차 앞으로 차선을 변경하기 시작함.",
+      "3. 00:03초, 흰색 승용차가 자차 앞으로 완전히 진입하여 주행을 이어감.",
+      "4. 충돌은 발생하지 않았으나, 갑작스러운 끼어들기로 인한 잠재적 위험 상황임."
+    ],
+    "root_cause": "우측 차량의 방향 지시등 미점등 및 급차선 변경"
+  }
+}

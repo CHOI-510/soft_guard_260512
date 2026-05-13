@@ -1,37 +1,39 @@
 {
   "metadata": {
     "video_id": "bc4.mp4",
-    "timestamp_in_video": "00:06-00:08"
+    "timestamp_in_video": "00:05-00:09"
   },
   "event_stream": {
-    "event_title": "자전거도로에서 차도로 갑자기 진입하는 자전거와 차량 아차사고",
-    "risk_level": 8,
-    "location_type": "도로변 자전거도로",
+    "event_title": "자전거 도로 갑작스러운 진입으로 인한 아차사고",
+    "risk_level": 7,
+    "location_type": "대로변",
     "involved_actors": [
-      "일반 승용차",
+      "자차",
       "자전거"
     ],
+    "vehicleCount": 1,
+    "pedestrianCount": 0,
+    "pmCount": 1,
     "collision_happened": false,
     "incident_type": "near_miss",
     "triggered_action": [
-      "관제센터 알림",
-      "인접 차량 위험 경고"
+      "운전자 주의 경고",
+      "위험 구간 데이터 수집"
     ]
   },
   "report_data": {
-    "event_category": "아차사고",
+    "event_category": "차대차 (자차 1대, 자전거 1대)",
     "severity_category": "아차사고",
-    "ego_vehicle_status": "사고 연루",
+    "ego_vehicle_status": "직진 주행 중",
     "environmental_factors": {
       "weather": "맑음",
       "time_of_day": "주간"
     },
     "sequence_of_events": [
-      "1. 자차(블랙박스 차량)가 도로 우측 차선을 따라 주행하고 있었음.",
-      "2. 한 사람이 도로변에 세워진 자전거에 탑승함.",
-      "3. 자전거가 후방을 확인하지 않고 갑자기 차도 쪽으로 방향을 틀어 진입함.",
-      "4. 자차 바로 앞으로 자전거가 끼어들면서 충돌 직전의 위험한 상황이 발생함."
+      "1. 우측 인도에서 자전거 1대가 갑자기 차로로 진입을 시도함.",
+      "2. 자전거 운전자는 전방 주시를 하지 않은 채 주행을 시작함.",
+      "3. 직진하던 자차(블랙박스 차량) 바로 앞에서 멈춰서며 충돌은 발생하지 않음."
     ],
-    "root_cause": "자전거 탑승자가 후방의 교통 상황을 확인하지 않고 안전 미확보 상태로 차도로 진입한 것이 주된 원인임."
+    "root_cause": "자전거의 안전 미확보 및 갑작스러운 차로 진입"
   }
 }

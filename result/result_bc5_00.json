@@ -1,37 +1,39 @@
 {
   "metadata": {
     "video_id": "bc5.mp4",
-    "timestamp_in_video": "00:05-00:09"
+    "timestamp_in_video": "00:04-00:09"
   },
   "event_stream": {
-    "event_title": "교차로 SUV-보행자 아차사고",
-    "risk_level": 6,
-    "location_type": "신호등 있는 횡단보도",
+    "event_title": "교차로 횡단보도 보행자 안전 횡단",
+    "risk_level": 1,
+    "location_type": "교차로 횡단보도",
     "involved_actors": [
-      "SUV",
+      "일반 승용차",
       "보행자"
     ],
+    "vehicleCount": 1,
+    "pedestrianCount": 1,
+    "pmCount": 0,
     "collision_happened": false,
     "incident_type": "near_miss",
     "triggered_action": [
-      "관제센터 알림",
-      "스마트 횡단보도 경고등 점멸"
+      "안전 운행 데이터 기록"
     ]
   },
   "report_data": {
-    "event_category": "아차사고",
+    "event_category": "차대사람",
     "severity_category": "아차사고",
-    "ego_vehicle_status": "정차 중 목격",
+    "ego_vehicle_status": "해당 없음 (고정형 카메라)",
     "environmental_factors": {
       "weather": "흐림",
-      "time_of_day": "해질녘"
+      "time_of_day": "주간"
     },
     "sequence_of_events": [
-      "1. 은색 SUV가 교차로에서 우회전을 시도하며 횡단보도로 접근합니다.",
-      "2. 보행자가 횡단보도에 진입하여 길을 건너기 시작합니다.",
-      "3. SUV가 횡단보도 직전에서 보행자를 발견하고 급정지합니다.",
-      "4. 보행자는 SUV 앞을 안전하게 지나갑니다."
+      "1. 00:04, 은색 SUV 차량이 횡단보도 앞 정지선에 맞춰 정지함.",
+      "2. 00:07, 보행자 1명이 우측에서 나타나 횡단보도를 이용해 도로를 건너기 시작함.",
+      "3. 00:09, 보행자는 정차 중인 차량의 후방으로 안전하게 횡단을 완료함.",
+      "4. 차량과 보행자 간의 물리적 접촉이나 위험한 상호작용은 발생하지 않았음."
     ],
-    "root_cause": "우회전 차량이 횡단보도를 건너려는 보행자의 움직임을 사전에 충분히 인지하지 못하고 접근하다가 급정지하여 발생한 아차사고입니다."
+    "root_cause": "차량 운전자가 신호를 준수하여 정차하고 보행자가 횡단보도를 이용해 안전하게 횡단하여 위험 상황이 발생하지 않음."
   }
 }

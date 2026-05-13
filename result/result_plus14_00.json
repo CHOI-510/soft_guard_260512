@@ -1,0 +1,40 @@
+{
+  "metadata": {
+    "video_id": "00-00-00-00-09.mp4",
+    "timestamp_in_video": "00:05-00:07"
+  },
+  "event_stream": {
+    "event_title": "이면도로 교차로 자전거 탑승 아동 충돌 사고",
+    "risk_level": 9,
+    "location_type": "이면도로 교차로",
+    "involved_actors": [
+      "자차 (승용차)",
+      "자전거 탑승 아동"
+    ],
+    "vehicleCount": 2,
+    "pedestrianCount": 0,
+    "pmCount": 0,
+    "collision_happened": true,
+    "incident_type": "collision",
+    "triggered_action": [
+      "관제센터 긴급 알림",
+      "119 자동 신고 대기"
+    ]
+  },
+  "report_data": {
+    "event_category": "차대차 (승용차 1대, 자전거 1대)",
+    "severity_category": "중대 사고",
+    "ego_vehicle_status": "교차로 직진 중 충돌 후 정차",
+    "environmental_factors": {
+      "weather": "맑음",
+      "time_of_day": "주간"
+    },
+    "sequence_of_events": [
+      "1. 자차가 이면도로 교차로를 직진함.",
+      "2. 00:05, 우측 도로에서 자전거를 탄 아동이 전방을 주시하지 않고 갑자기 튀어나와 교차로로 진입함.",
+      "3. 00:06, 자차가 급정거를 시도했으나 피하지 못하고 자전거의 측면과 충돌함.",
+      "4. 충격으로 아동이 자전거와 함께 도로에 넘어짐."
+    ],
+    "root_cause": "우측 사각지대에서 나온 자전거 탑승 아동의 갑작스러운 교차로 진입 및 전방 주시 태만"
+  }
+}

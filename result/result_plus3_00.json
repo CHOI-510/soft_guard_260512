@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "video_id": "00.mp4",
+    "timestamp_in_video": "00:05-00:07"
+  },
+  "event_stream": {
+    "event_title": "교차로 횡단보도 좌회전 차량 보행자 충돌 사고",
+    "risk_level": 9,
+    "location_type": "교차로 횡단보도",
+    "involved_actors": [
+      "검은색 승용차",
+      "보행자"
+    ],
+    "vehicleCount": 1,
+    "pedestrianCount": 1,
+    "pmCount": 0,
+    "collision_happened": true,
+    "incident_type": "collision",
+    "triggered_action": [
+      "관제센터 긴급 알림",
+      "119 자동 신고 대기"
+    ]
+  },
+  "report_data": {
+    "event_category": "차대사람 (차량 1대, 보행자 1명)",
+    "severity_category": "중대 사고",
+    "ego_vehicle_status": "교차로에서 정차 중",
+    "environmental_factors": {
+      "weather": "흐림",
+      "time_of_day": "주간"
+    },
+    "sequence_of_events": [
+      "1. 보행자가 횡단보도를 따라 길을 건너기 시작함.",
+      "2. 우측에서 좌회전하던 검은색 승용차가 보행자를 미처 발견하지 못하고 그대로 주행함.",
+      "3. 승용차 전면부와 보행자가 충돌하여 보행자가 도로 위로 넘어짐."
+    ],
+    "root_cause": "좌회전 차량의 전방 주시 태만 및 보행자 보호 의무 위반"
+  }
+}

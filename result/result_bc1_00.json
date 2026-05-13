@@ -1,36 +1,39 @@
 {
   "metadata": {
     "video_id": "bc1.mp4",
-    "timestamp_in_video": "00:00-00:02"
+    "timestamp_in_video": "00:01-00:03"
   },
   "event_stream": {
-    "event_title": "주유소 진출입 차량 및 자전거 아차사고",
-    "risk_level": 4,
-    "location_type": "주유소 진출입로",
+    "event_title": "주유소 진입로 자전거 근접 통과 아차사고",
+    "risk_level": 7,
+    "location_type": "주유소 진입로",
     "involved_actors": [
-      "승용차(흰색)",
-      "자전거(2대)",
-      "자차(블랙박스 차량)"
+      "자차",
+      "자전거"
     ],
+    "vehicleCount": 1,
+    "pedestrianCount": 0,
+    "pmCount": 1,
+    "collision_happened": false,
+    "incident_type": "near_miss",
     "triggered_action": [
-      "관제센터 알림"
+      "운전자 긴급 경고",
+      "관제센터 집중 모니터링"
     ]
   },
   "report_data": {
-    "event_category": "아차사고",
+    "event_category": "차대 사람",
     "severity_category": "아차사고",
-    "ego_vehicle_status": "주행 중 목격",
+    "ego_vehicle_status": "주유소로 우회전 진입 중 서행",
     "environmental_factors": {
       "weather": "맑음",
       "time_of_day": "주간"
     },
     "sequence_of_events": [
-      "1. 자차(블랙박스 차량)가 주유소 진입을 위해 서행하며 접근.",
-      "2. 주유소에서 흰색 승용차가 좌회전하여 진출하며 자차의 전방을 가로지름.",
-      "3. 자차는 흰색 승용차 통과 후 주유소 진입을 시도.",
-      "4. 이 때, 도로에서 주유소로 진입하는 자전거 2대가 자차의 전방을 가로지름.",
-      "5. 자차는 자전거 통과 후 주유소 진입을 완료."
+      "1. 자차가 주유소로 우회전하며 진입하는 중이었음.",
+      "2. 좌측에서 오던 자전거가 자차의 바로 앞으로 경로를 가로질러 주행함.",
+      "3. 자차가 급정거하여 충돌을 회피했으며, 자전거는 넘어지지 않고 그대로 통과함."
     ],
-    "root_cause": "주유소 진출입로에서 진출입 차량 및 자전거와 주행 차량 간의 통행 우선순위 불확실성 및 주의 의무 부족."
+    "root_cause": "주유소 출입구 영역에서 자전거의 갑작스러운 출현과 전방 주시 미흡"
   }
 }
