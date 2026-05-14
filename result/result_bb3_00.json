@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "video_id": "bb3.mp4",
+    "timestamp_in_video": "00:07-00:09"
+  },
+  "event_stream": {
+    "event_title": "야간 이면도로 자전거 탑승자 충돌 사고",
+    "risk_level": 10,
+    "location_type": "이면도로",
+    "involved_actors": [
+      "일반 승용차",
+      "자전거"
+    ],
+    "vehicleCount": 2,
+    "pedestrianCount": 0,
+    "pmCount": 0,
+    "collision_happened": true,
+    "incident_type": "collision",
+    "triggered_action": [
+      "관제센터 긴급 알림",
+      "119 자동 신고 대기"
+    ]
+  },
+  "report_data": {
+    "event_category": "차대자전거",
+    "severity_category": "중대 사고",
+    "ego_vehicle_status": "직진 중",
+    "environmental_factors": {
+      "weather": "맑음",
+      "time_of_day": "야간"
+    },
+    "sequence_of_events": [
+      "1. 자전거 탑승자가 우측 가게 앞에서 도로로 진입하며 좌측으로 횡단.",
+      "2. 전방을 직진하던 자차(블랙박스 차량)가 자전거와 충돌함.",
+      "3. 충돌 충격으로 자전거 탑승자가 차량 전방 도로에 넘어짐."
+    ],
+    "root_cause": "야간 시야가 제한된 이면도로에서 자전거 탑승자가 갑자기 횡단하여 주행 중인 차량이 이를 피하지 못하고 발생한 충돌"
+  }
+}

@@ -1,11 +1,11 @@
 {
   "metadata": {
     "video_id": "ac4.mp4",
-    "timestamp_in_video": "00:07-00:08"
+    "timestamp_in_video": "00:07-00:09"
   },
   "event_stream": {
     "event_title": "교차로 보행자 무단횡단 아차사고",
-    "risk_level": 5,
+    "risk_level": 7,
     "location_type": "교차로",
     "involved_actors": [
       "자차",
@@ -23,16 +23,16 @@
   "report_data": {
     "event_category": "차대사람",
     "severity_category": "아차사고",
-    "ego_vehicle_status": "서행 또는 정차 중",
+    "ego_vehicle_status": "서행 및 정차",
     "environmental_factors": {
       "weather": "맑음",
       "time_of_day": "주간"
     },
     "sequence_of_events": [
-      "1. 자차가 교차로에서 서행 또는 정차 중이었음.",
-      "2. 보행자 1명이 우측에서 좌측으로 횡단보도가 아닌 곳을 통해 무단횡단을 시도함.",
-      "3. 보행자가 자차 바로 앞을 근접하여 통과했으며, 물리적 충돌은 발생하지 않음."
+      "1. 자차가 교차로에서 서행하는 도중, 우측에서 보행자 1명이 차도에 진입함.",
+      "2. 보행자가 횡단보도가 아닌 곳에서 무단으로 횡단하며 자차 앞으로 접근함.",
+      "3. 자차가 급정거하여 보행자와의 충돌을 피했으며, 보행자는 차량 앞을 무사히 지나감."
     ],
-    "root_cause": "보행자의 무단횡단"
+    "root_cause": "보행자의 전방 미주시 및 무단횡단"
   }
 }

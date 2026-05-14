@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "video_id": "bb12.mp4",
+    "timestamp_in_video": "00:05-00:09"
+  },
+  "event_stream": {
+    "event_title": "이면도로 사각지대에서 출현한 자전거와 차량 충돌 사고",
+    "risk_level": 9,
+    "location_type": "이면도로",
+    "involved_actors": [
+      "자차",
+      "자전거"
+    ],
+    "vehicleCount": 1,
+    "pedestrianCount": 0,
+    "pmCount": 1,
+    "collision_happened": true,
+    "incident_type": "collision",
+    "triggered_action": [
+      "관제센터 긴급 알림",
+      "119 자동 신고 대기"
+    ]
+  },
+  "report_data": {
+    "event_category": "차대자전거",
+    "severity_category": "경미한 사고",
+    "ego_vehicle_status": "서행 중",
+    "environmental_factors": {
+      "weather": "맑음",
+      "time_of_day": "주간"
+    },
+    "sequence_of_events": [
+      "1. 자차가 주차된 차량들로 인해 시야가 제한된 좁은 이면도로를 서행으로 주행 중이었음.",
+      "2. 우측에 주차된 흰색 차량 앞으로 자전거를 탄 아동이 갑자기 튀어나와 자차의 경로로 진입함.",
+      "3. 자차의 우측 전면부와 자전거가 충돌하였고, 그 충격으로 자전거 탑승자가 도로 위로 넘어짐."
+    ],
+    "root_cause": "주차된 차량으로 인한 시야 사각지대에서 갑자기 출현한 자전거를 미처 발견하지 못하고 충돌함."
+  }
+}

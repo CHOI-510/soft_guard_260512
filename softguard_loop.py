@@ -260,6 +260,9 @@ def analyze_accident_video(video_path):
     8. 접촉이 전혀 없고 양측 모두 정상적으로 주행/보행을 이어갈 때만 "near_miss"를 사용하라.
     9. 객체의 움직임과 결과를 팩트 기반으로만 냉정하게 기술하라.
     10. 반드시 아래의 JSON 스키마 형식에 맞춰서 출력하고, 마크다운(```json)이나 다른 설명은 절대 포함하지 마.
+    11. 차량, 보행자, 자전거 외에 다른 객체가 보이면 무시해라. '자전거를 든 보행자'같은건 없다.
+    12. 분명 충돌이 일어나 사람이 날라가거나 큰 충격이 가해졌음이 확인되었는데도 충돌없음 등으로 판단하지 말 것. 충돌 여부를 확실히 판단하고, 충돌 시 해당 충돌 내용을 자세히 작성할 것.
+
 
     [JSON 스키마]
     {
@@ -280,7 +283,7 @@ def analyze_accident_video(video_path):
         "triggered_action": ["관제센터 긴급 알림", "119 자동 신고 대기"]
       },
       "report_data": {
-        "event_category": "차대사람, 차대차 등 (참여한 행위자 수량 포함)",
+        "event_category": "차대사람, 차대자전거 등 (참여한 행위자 수량 포함)",
         "severity_category": "중대 사고, 경미한 사고, 아차사고 중 택 1",
         "ego_vehicle_status": "자차의 상태",
         "environmental_factors": {

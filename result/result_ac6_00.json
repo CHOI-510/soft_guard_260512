@@ -1,14 +1,14 @@
 {
   "metadata": {
     "video_id": "ac6.mp4",
-    "timestamp_in_video": "00:04-00:06"
+    "timestamp_in_video": "00:01-00:03"
   },
   "event_stream": {
-    "event_title": "교차로 횡단보도 보행자 대상 차량 급정거 아차사고",
-    "risk_level": 6,
+    "event_title": "교차로 횡단보도 보행자-차량 아차사고",
+    "risk_level": 7,
     "location_type": "교차로 횡단보도",
     "involved_actors": [
-      "검은색 승용차",
+      "일반 승용차",
       "보행자"
     ],
     "vehicleCount": 1,
@@ -17,23 +17,22 @@
     "collision_happened": false,
     "incident_type": "near_miss",
     "triggered_action": [
-      "위험 구간 데이터 기록",
-      "관련 차량 운전자에게 안전 경고 전송"
+      "관련 차량 운전자에게 경고 알림"
     ]
   },
   "report_data": {
     "event_category": "차대사람",
     "severity_category": "아차사고",
-    "ego_vehicle_status": "신호 대기 중 정차",
+    "ego_vehicle_status": "신호 대기 정차 중",
     "environmental_factors": {
-      "weather": "맑음",
+      "weather": "흐림",
       "time_of_day": "주간"
     },
     "sequence_of_events": [
       "1. 보행자가 좌측에서 우측으로 횡단보도를 건너기 시작함.",
-      "2. 교차로를 통과하던 검은색 승용차가 횡단하는 보행자를 뒤늦게 발견하고 급정거함.",
-      "3. 차량이 보행자 바로 앞에서 멈춰 충돌은 발생하지 않았고, 보행자는 안전하게 횡단을 마침."
+      "2. 좌측 도로에서 교차로로 진입하던 검은색 승용차가 보행자 앞에서 급정거함.",
+      "3. 충돌은 발생하지 않았고, 보행자는 횡단을 계속함."
     ],
-    "root_cause": "차량 운전자의 전방 주시 태만으로 인한 보행자 보호 의무 위반"
+    "root_cause": "교차로 진입 차량의 보행자 확인 미흡 및 보행자의 안전 확인 소홀"
   }
 }

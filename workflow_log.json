@@ -3,25 +3,25 @@
   "steps": {
     "analyze": {
       "status": "completed",
-      "timestamp": "2026-05-13T16:18:03.948967",
+      "timestamp": "2026-05-14T02:03:11.922539",
       "details": {
-        "input_video": "plus18.mp4",
-        "output_result": "result_plus18_00.json"
+        "input_video": "bc5.mp4",
+        "output_result": "result_bc5_00.json"
       }
     },
     "download": {
       "status": "completed",
-      "timestamp": "2026-05-13T15:45:17.611844",
+      "timestamp": "2026-05-14T09:29:01.542607",
       "details": {
         "message": "대기 영상 없음"
       }
     },
     "upload": {
       "status": "completed",
-      "timestamp": "2026-05-13T15:40:08.058541",
+      "timestamp": "2026-05-14T02:03:12.724791",
       "details": {
         "file": "result_bc5_00.json",
-        "server_response": "{\"videoId\":\"bc5.mp4\",\"message\":\"분석 결과가 성공적으로 저장되었습니다.\",\"status\":\"success\"}"
+        "server_response": "{\"status\":\"success\",\"message\":\"분석 결과가 성공적으로 저장되었습니다.\",\"videoId\":\"bc5.mp4\"}"
       }
     }
   }

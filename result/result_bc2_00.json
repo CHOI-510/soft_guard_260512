@@ -4,14 +4,15 @@
     "timestamp_in_video": "00:02-00:04"
   },
   "event_stream": {
-    "event_title": "교차로 횡단보도 자전거 이용자 단독 낙상 사고",
-    "risk_level": 8,
+    "event_title": "교차로 우회전 차량-자전거 충돌 사고",
+    "risk_level": 9,
     "location_type": "교차로 횡단보도",
     "involved_actors": [
-      "자전거 이용자"
+      "자차(승용차)",
+      "자전거"
     ],
-    "vehicleCount": 0,
-    "pedestrianCount": 1,
+    "vehicleCount": 1,
+    "pedestrianCount": 0,
     "pmCount": 1,
     "collision_happened": true,
     "incident_type": "collision",
@@ -21,18 +22,18 @@
     ]
   },
   "report_data": {
-    "event_category": "단독 사고 (자전거 1대)",
+    "event_category": "차대자전거 (차량 1대, 자전거 1대)",
     "severity_category": "경미한 사고",
-    "ego_vehicle_status": "교차로 신호 대기 중 정차",
+    "ego_vehicle_status": "교차로에서 우회전 진행 중",
     "environmental_factors": {
       "weather": "흐림",
-      "time_of_day": "주간"
+      "time_of_day": "황혼"
     },
     "sequence_of_events": [
-      "1. 자전거 이용자가 횡단보도를 이용하여 우측에서 진입함.",
-      "2. 횡단보도를 주행하던 중 균형을 잃고 도로 위로 넘어짐.",
-      "3. 자전거 이용자는 잠시 후 스스로 일어나 자전거를 두고 현장을 벗어남."
+      "1. 자차(EGO)가 교차로에서 우회전을 시도하는 중, 우측에서 횡단보도를 따라오던 자전거가 나타남.",
+      "2. 자차의 전방 우측 부분과 자전거가 충돌함.",
+      "3. 충격으로 인해 자전거 탑승자가 자전거와 함께 도로 위로 넘어짐."
     ],
-    "root_cause": "자전거 이용자의 운전 부주의 또는 미숙으로 인한 단독 낙상으로 추정됨."
+    "root_cause": "교차로 우회전 시 횡단보도를 건너는 자전거를 미처 확인하지 못한 전방 주시 태만"
   }
 }

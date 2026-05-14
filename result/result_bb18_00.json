@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "video_id": "bb18.mp4",
+    "timestamp_in_video": "00:03-00:05"
+  },
+  "event_stream": {
+    "event_title": "교차로 우회전 버스와 자전거 충돌 사고",
+    "risk_level": 10,
+    "location_type": "교차로",
+    "involved_actors": [
+      "버스",
+      "자전거"
+    ],
+    "vehicleCount": 1,
+    "pedestrianCount": 0,
+    "pmCount": 1,
+    "collision_happened": true,
+    "incident_type": "collision",
+    "triggered_action": [
+      "관제센터 긴급 알림",
+      "119 자동 신고 대기"
+    ]
+  },
+  "report_data": {
+    "event_category": "차대자전거",
+    "severity_category": "중대 사고",
+    "ego_vehicle_status": "교차로에서 선행 차량(버스) 후방에서 대기 중",
+    "environmental_factors": {
+      "weather": "맑음",
+      "time_of_day": "주간"
+    },
+    "sequence_of_events": [
+      "1. 00:02, 파란색 버스가 교차로에서 우회전을 시작함.",
+      "2. 00:03, 우측 인도에서 자전거를 탄 사람이 횡단보도로 진입하여 주행하기 시작함.",
+      "3. 00:04, 우회전하던 버스의 우측 전면부가 자전거와 충돌하였고, 자전거 탑승자는 충격으로 넘어짐."
+    ],
+    "root_cause": "버스 운전자의 우회전 시 전방 및 측방 주시 태만으로 횡단보도를 건너던 자전거를 발견하지 못하여 발생한 충돌 사고"
+  }
+}
