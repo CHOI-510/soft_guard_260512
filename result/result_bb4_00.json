@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "video_id": "bb4.mp4",
+    "timestamp_in_video": "00:04-00:05"
+  },
+  "event_stream": {
+    "event_title": "아파트 단지 내 어린이 자전거 갑툭튀 아차사고",
+    "risk_level": 7,
+    "location_type": "이면도로",
+    "involved_actors": [
+      "자차",
+      "자전거"
+    ],
+    "vehicleCount": 1,
+    "pedestrianCount": 0,
+    "pmCount": 1,
+    "collision_happened": false,
+    "incident_type": "near_miss",
+    "triggered_action": [
+      "운전자 경고 알림",
+      "관련 데이터 기록 및 분석"
+    ]
+  },
+  "report_data": {
+    "event_category": "차대자전거",
+    "severity_category": "아차사고",
+    "ego_vehicle_status": "전방 주행 중 급정거",
+    "environmental_factors": {
+      "weather": "맑음",
+      "time_of_day": "주간"
+    },
+    "sequence_of_events": [
+      "1. 자차가 아파트 단지 내 이면도로를 주행 중이었음.",
+      "2. 00:04, 도로 우측에 주차된 화물차 앞으로 어린이 한 명이 자전거를 타고 갑자기 나타나 도로를 횡단함.",
+      "3. 자차가 급정거하여 충돌을 피했고, 어린이는 자전거를 탄 채로 안전하게 좌측으로 지나감."
+    ],
+    "root_cause": "주차 차량으로 인한 시야 사각지대에서 어린이가 갑자기 출현함."
+  }
+}

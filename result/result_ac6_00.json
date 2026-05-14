@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "video_id": "ac6.mp4",
+    "timestamp_in_video": "00:01-00:03"
+  },
+  "event_stream": {
+    "event_title": "교차로 횡단보도 보행자-차량 아차사고",
+    "risk_level": 7,
+    "location_type": "교차로 횡단보도",
+    "involved_actors": [
+      "일반 승용차",
+      "보행자"
+    ],
+    "vehicleCount": 1,
+    "pedestrianCount": 1,
+    "pmCount": 0,
+    "collision_happened": false,
+    "incident_type": "near_miss",
+    "triggered_action": [
+      "관련 차량 운전자에게 경고 알림"
+    ]
+  },
+  "report_data": {
+    "event_category": "차대사람",
+    "severity_category": "아차사고",
+    "ego_vehicle_status": "신호 대기 정차 중",
+    "environmental_factors": {
+      "weather": "흐림",
+      "time_of_day": "주간"
+    },
+    "sequence_of_events": [
+      "1. 보행자가 좌측에서 우측으로 횡단보도를 건너기 시작함.",
+      "2. 좌측 도로에서 교차로로 진입하던 검은색 승용차가 보행자 앞에서 급정거함.",
+      "3. 충돌은 발생하지 않았고, 보행자는 횡단을 계속함."
+    ],
+    "root_cause": "교차로 진입 차량의 보행자 확인 미흡 및 보행자의 안전 확인 소홀"
+  }
+}

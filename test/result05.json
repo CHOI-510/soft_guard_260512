@@ -1,0 +1,36 @@
+{
+  "metadata": {
+    "video_id": "TS.mp4",
+    "timestamp_in_video": "00:05-00:08"
+  },
+  "event_stream": {
+    "event_title": "교차로 택시-보행자 충돌 사고",
+    "risk_level": 9,
+    "location_type": "신호등 있는 횡단보도",
+    "involved_actors": [
+      "택시",
+      "보행자"
+    ],
+    "triggered_action": [
+      "관제센터 알림",
+      "스마트 횡단보도 경고등 점멸"
+    ]
+  },
+  "report_data": {
+    "event_category": "차대사람",
+    "severity_category": "중대 사고",
+    "ego_vehicle_status": "정차 중 목격",
+    "environmental_factors": {
+      "weather": "맑음",
+      "time_of_day": "주간"
+    },
+    "sequence_of_events": [
+      "1. 블랙박스 차량은 교차로 신호대기 중.",
+      "2. 택시가 교차로에서 우회전 진입을 시도함.",
+      "3. 횡단보도를 건너던 보행자가 우회전하는 택시와 충돌함.",
+      "4. 충돌 충격으로 보행자가 횡단보도 위에 넘어짐.",
+      "5. 택시 운전자가 차량을 정차하고 하차하여 보행자의 상태를 확인하려는 모습이 보임."
+    ],
+    "root_cause": "택시 운전자의 우회전 시 횡단보도 보행자 미확인 및 일시정지 의무 미준수"
+  }
+}

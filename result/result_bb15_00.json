@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "video_id": "bb15.mp4",
+    "timestamp_in_video": "00:04-00:07"
+  },
+  "event_stream": {
+    "event_title": "교차로 신호위반 차량과 자전거 충돌 사고",
+    "risk_level": 10,
+    "location_type": "교차로",
+    "involved_actors": [
+      "일반 승용차",
+      "자전거"
+    ],
+    "vehicleCount": 1,
+    "pedestrianCount": 0,
+    "pmCount": 1,
+    "collision_happened": true,
+    "incident_type": "collision",
+    "triggered_action": [
+      "관제센터 긴급 알림",
+      "119 자동 신고 대기"
+    ]
+  },
+  "report_data": {
+    "event_category": "차대자전거",
+    "severity_category": "중대 사고",
+    "ego_vehicle_status": "해당 없음 (블랙박스 영상)",
+    "environmental_factors": {
+      "weather": "맑음",
+      "time_of_day": "야간"
+    },
+    "sequence_of_events": [
+      "1. 자전거가 교차로를 좌측에서 우측으로 횡단함.",
+      "2. 좌측에서 직진하던 검은색 승용차가 정지 신호를 위반하고 교차로에 진입하여 자전거와 충돌함.",
+      "3. 충격으로 인해 자전거 탑승자가 도로에 넘어짐."
+    ],
+    "root_cause": "승용차의 신호 위반 및 전방 주시 태만"
+  }
+}

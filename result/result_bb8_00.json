@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "video_id": "bb8.mp4",
+    "timestamp_in_video": "00:08-00:09"
+  },
+  "event_stream": {
+    "event_title": "이면도로 보행자 무단횡단으로 인한 차량 근접 사고",
+    "risk_level": 7,
+    "location_type": "이면도로",
+    "involved_actors": [
+      "보행자",
+      "일반 승용차"
+    ],
+    "vehicleCount": 3,
+    "pedestrianCount": 1,
+    "pmCount": 0,
+    "collision_happened": false,
+    "incident_type": "near_miss",
+    "triggered_action": [
+      "관제센터 위험 경고",
+      "주변 차량에 위험 상황 전파"
+    ]
+  },
+  "report_data": {
+    "event_category": "차대사람",
+    "severity_category": "아차사고",
+    "ego_vehicle_status": "주행 중",
+    "environmental_factors": {
+      "weather": "맑음",
+      "time_of_day": "주간"
+    },
+    "sequence_of_events": [
+      "1. 00:08, 우측에 주차된 차량들 사이에서 보행자 1명이 도로로 갑자기 진입함.",
+      "2. 보행자는 좌측에서 다가오는 차량을 확인하지 않고 그대로 무단횡단을 시도함.",
+      "3. 00:09, 좌측에서 직진하던 파란색 승용차가 보행자 바로 앞으로 근접했으나, 충돌은 발생하지 않음."
+    ],
+    "root_cause": "보행자의 전방 주시 태만 및 무단횡단"
+  }
+}

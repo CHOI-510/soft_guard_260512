@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "video_id": "bc3.mp4",
+    "timestamp_in_video": "00:03-00:05"
+  },
+  "event_stream": {
+    "event_title": "이면도로 주행 중 자전거 단독 전도 아차사고",
+    "risk_level": 6,
+    "location_type": "이면도로",
+    "involved_actors": [
+      "자차",
+      "자전거"
+    ],
+    "vehicleCount": 2,
+    "pedestrianCount": 0,
+    "pmCount": 0,
+    "collision_happened": false,
+    "incident_type": "near_miss",
+    "triggered_action": [
+      "운전자 주의 경고"
+    ]
+  },
+  "report_data": {
+    "event_category": "차대자전거",
+    "severity_category": "아차사고",
+    "ego_vehicle_status": "주행 중 정지",
+    "environmental_factors": {
+      "weather": "맑음",
+      "time_of_day": "주간"
+    },
+    "sequence_of_events": [
+      "1. 자차가 좁은 이면도로를 주행하던 중, 좌측에서 자전거 1대가 접근함.",
+      "2. 자전거가 자차 앞으로 진입하던 중 도로 위 웅덩이에서 균형을 잃고 넘어짐.",
+      "3. 자차는 넘어진 자전거 운전자 앞에서 즉시 정지하여 충돌을 회피함."
+    ],
+    "root_cause": "불량한 도로 노면 상태로 인한 자전거 운전자 전도"
+  }
+}

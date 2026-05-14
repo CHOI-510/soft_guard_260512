@@ -1,0 +1,40 @@
+{
+  "metadata": {
+    "video_id": "bb10.mp4",
+    "timestamp_in_video": "00:07-00:09"
+  },
+  "event_stream": {
+    "event_title": "이면도로 교차로에서 자전거를 든 보행자와 차량 충돌 사고",
+    "risk_level": 10,
+    "location_type": "이면도로 교차로",
+    "involved_actors": [
+      "자차",
+      "자전거를 든 보행자"
+    ],
+    "vehicleCount": 1,
+    "pedestrianCount": 1,
+    "pmCount": 0,
+    "collision_happened": true,
+    "incident_type": "collision",
+    "triggered_action": [
+      "관제센터 긴급 알림",
+      "119 자동 신고 대기"
+    ]
+  },
+  "report_data": {
+    "event_category": "차대사람",
+    "severity_category": "중대 사고",
+    "ego_vehicle_status": "이면도로 저속 주행 중",
+    "environmental_factors": {
+      "weather": "흐림",
+      "time_of_day": "주간"
+    },
+    "sequence_of_events": [
+      "1. 자차(블랙박스 차량)가 좁은 이면도로를 주행하고 있었음.",
+      "2. 00:07초, 좌측 골목에서 한 보행자가 자전거를 어깨에 멘 채로 주변을 살피지 않고 갑자기 나타남.",
+      "3. 00:08초, 자차가 보행자를 피하지 못하고 정면으로 충돌함.",
+      "4. 충격으로 보행자가 자전거와 함께 뒤로 크게 튕겨 나감."
+    ],
+    "root_cause": "좌측 골목길의 시야가 확보되지 않은 사각지대에서 보행자가 안전 확인 없이 도로로 진입하여 발생한 사고."
+  }
+}

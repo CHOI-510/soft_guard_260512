@@ -1,0 +1,158 @@
+import os
+import time
+import json
+import argparse
+import google.genai as genai
+
+# 1. 기본 경로 설정
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+VIDEO_DIR = os.path.join(SCRIPT_DIR, "video")
+RESULT_DIR = os.path.join(SCRIPT_DIR, "result")
+os.makedirs(RESULT_DIR, exist_ok=True)
+
+# 2. API 설정 및 예외 처리 (조기 종료)
+api_key = os.getenv("GOOGLE_API_KEY")
+if not api_key:
+    print("🚨 [오류] GOOGLE_API_KEY 환경 변수가 설정되지 않았습니다.")
+    print("파워셸에서 다음 명령어를 실행하세요: $env:GOOGLE_API_KEY='선생님의_API_키'")
+    exit(1)
+
+client = genai.Client(api_key=api_key)
+
+def get_next_filename(video_path, extension="json", result_dir=RESULT_DIR):
+    """result_{video_filename}_{index:02d}.json 형태로 다음 저장할 파일명을 결정함"""
+    # 1. 경로에서 파일명만 추출 (예: C:/data/TS.mp4 -> TS.mp4)
+    file_base_with_ext = os.path.basename(video_path)
+    # 2. 확장자 제거 (예: TS.mp4 -> TS)
+    video_name_only = os.path.splitext(file_base_with_ext)[0]
+    
+    index = 0
+    while True:
+        # result/result_TS_00.json 형식으로 조합
+        filename = os.path.join(result_dir, f"result_{video_name_only}_{index:02d}.{extension}")
+        if not os.path.exists(filename):
+            return filename
+        index += 1
+
+def save_json_result(data_text, video_path, result_dir=RESULT_DIR):
+    """분석 결과 저장 (파일명에 영상 이름 포함)"""
+    filename = get_next_filename(video_path, result_dir=result_dir)
+    
+    try:
+        json_data = json.loads(data_text)
+        with open(filename, 'w', encoding='utf-8') as f:
+            json.dump(json_data, f, ensure_ascii=False, indent=2)
+        print(f"✅ 분석 결과 저장 완료: {filename}")
+    except json.JSONDecodeError:
+        print("❌ JSON 형식이 아니어서 텍스트로 저장합니다.")
+        with open(f"{filename}.txt", 'w', encoding='utf-8') as f:
+            f.write(data_text)
+
+def analyze_accident_video(video_path):
+    print(f"🎬 영상 업로드 중: {video_path}")
+    
+    try:
+        video_file = client.files.upload(file=video_path)
+    except Exception as e:
+        print(f"❌ 영상 업로드 실패: {e}")
+        print("   - 경로가 올바른지 확인: ", video_path)
+        print("   - 네트워크 문제이거나 Gemini 업로드 제한일 수 있습니다.")
+        exit(1)
+    
+    # 영상 처리 대기 (무한 대기 방지용 5분 타임아웃 추가)
+    max_wait_time = 300
+    start_time = time.time()
+    
+    while video_file.state == "PROCESSING":
+        if time.time() - start_time > max_wait_time:
+            print("\n❌ 영상 처리 시간 초과 (Timeout). 나중에 다시 시도하세요.")
+            exit(1)
+            
+        print(".", end="", flush=True)
+        time.sleep(2)
+        video_file = client.files.get(name=video_file.name)
+
+    if video_file.state == "FAILED":
+        print("\n❌ 구글 서버에서 영상 처리를 실패했습니다.")
+        exit(1)
+
+    print("\n🧠 AI 분석 중 (Gemini 2.5 Pro)...")
+    
+    # 프롬프트에 동적으로 파일명(os.path.basename)이 들어가도록 f-string 적용
+    prompt = f"""
+    너는 스마트 시티의 'soft_guard' AI 관제 시스템이야.
+    제공된 블랙박스 영상({os.path.basename(video_path)})을 1프레임 단위로 정밀하게 분석하여 데이터를 추출해줘.
+    
+    [중요 지시사항]
+    1. 화면에 등장하는 차량의 종류(일반 승용차, 택시, 버스, 화물차, 오토바이, 자전거)를 절대 혼동하지 말고 정확히 식별할 것.
+    2. 버스는 절대 SUV 또는 승용차로 쓰지 마.
+    3. 버스는 일반적으로 차체가 길고 창문이 여러 칸이며 승객석이 보이면 반드시 "버스"로 표기.
+    4. SUV는 5인승 정도의 승용차 형태로, 버스가 아니면 절대 SUV로 쓰지 마.
+    5. 영상 속 교통 신호가 직진 신호인지 좌회전 신호인지, 또는 차로가 직진 차로인지 명확히 분석하라.
+    6. 직진 신호 또는 직진 차로에서 무리하게 주행하다가 충돌한 경우에는 절대 "좌회전"이라고 쓰지 말 것.
+    7. 버스가 보행자에게 충돌한 상황이면 반드시 involved_actors에 "버스"와 "보행자"를 모두 포함할 것.
+    8. 실제 충돌이 발생하면 "collision_happened": true, 사고 유형은 "collision" 또는 "교통사고"로 표기.
+    9. 접촉이 없을 때만 "collision_happened": false와 "near_miss" 또는 "아차사고"를 사용할 것.
+    10. 객체의 움직임과 충돌 여부를 팩트 기반으로만 기술할 것.
+    11. 반드시 아래의 JSON 스키마 형식에 맞춰서 출력하고, 마크다운(```json)이나 다른 설명은 절대 포함하지 마.
+
+    [JSON 스키마]
+    {{
+      "metadata": {{
+        "video_id": "분석한 영상의 파일명",
+        "timestamp_in_video": "사고/위험 상황이 발생한 시간대 (예: '00:05-00:08')"
+      }},
+      "event_stream": {{
+        "event_title": "상황에 대한 짧고 명확한 제목 (예: 교차로 택시-보행자 아차사고)",
+        "risk_level": 1~10 사이의 정수 (10이 가장 위험),
+        "location_type": "사고 발생 위치 (예: 신호등 있는 횡단보도)",
+        "involved_actors": ["객체1(상세 종류 명시, 예: 택시)", "객체2(예: 보행자)"],
+        "collision_happened": true/false,
+        "incident_type": "collision 또는 near_miss",
+        "triggered_action": ["관제센터 알림", "스마트 횡단보도 경고등 점멸"]
+      }},
+      "report_data": {{
+        "event_category": "차대차, 차대사람, 이륜차 사고, 단독 사고, 아차사고 중 택 1",
+        "severity_category": "아차사고, 경미한 접촉, 중대 사고 중 택 1",
+        "ego_vehicle_status": "자차(블랙박스 차량)의 상태 (예: 사고 연루, 정차 중 목격, 주행 중 목격)",
+        "environmental_factors": {{
+          "weather": "맑음, 흐림, 비, 눈 등",
+          "time_of_day": "주간, 야간, 해질녘"
+        }},
+        "sequence_of_events": [
+          "사고 전후 맥락을 파악할 수 있는 시간순 행동 요약 (예: 1. 택시가 우회전 시도, 2. 보행자가 횡단보도 진입...)"
+        ],
+        "root_cause": "위험 상황이 발생한 근본 원인 요약"
+      }}
+    }}
+    """
+
+    try:
+        response = client.models.generate_content(
+            model="gemini-2.5-pro",
+            contents=[video_file, prompt],
+            config={"response_mime_type": "application/json"}
+        )
+        return response.text
+    except Exception as e:
+        print(f"❌ AI 분석 중 에러 발생: {e}")
+        exit(1)
+
+if __name__ == "__main__":
+    # 명령어 실행 시 영상 이름을 인자로 받도록 설정 (argparse 추가)
+    parser = argparse.ArgumentParser(description="사고 영상 분석 AI (Gemini 2.5 API)")
+    parser.add_argument("video_file", help="video 폴더 안에 있는 영상 파일 이름 또는 경로 (예: TS.mp4)")
+    args = parser.parse_args()
+
+    video_path = os.path.normpath(args.video_file)
+    if not os.path.exists(video_path):
+        candidate_path = os.path.normpath(os.path.join(VIDEO_DIR, video_path))
+        if os.path.exists(candidate_path):
+            video_path = candidate_path
+
+    if os.path.exists(video_path):
+        json_result = analyze_accident_video(video_path)
+        save_json_result(json_result, video_path)
+    else:
+        print(f"❌ 영상을 찾을 수 없습니다: {video_path}")
+        print(f"video 폴더에서 찾으려면 다음처럼 실행하세요: python analyze_video.py TS.mp4")

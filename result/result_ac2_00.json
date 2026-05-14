@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "video_id": "ac2.mp4",
+    "timestamp_in_video": "00:03-00:05"
+  },
+  "event_stream": {
+    "event_title": "횡단보도 보행자 근접 통과로 인한 아차사고",
+    "risk_level": 7,
+    "location_type": "교차로 횡단보도",
+    "involved_actors": [
+      "검은색 SUV",
+      "보행자"
+    ],
+    "vehicleCount": 1,
+    "pedestrianCount": 1,
+    "pmCount": 0,
+    "collision_happened": false,
+    "incident_type": "near_miss",
+    "triggered_action": [
+      "관제센터 알림"
+    ]
+  },
+  "report_data": {
+    "event_category": "차대사람",
+    "severity_category": "아차사고",
+    "ego_vehicle_status": "전방 차량 후미에서 주행 중",
+    "environmental_factors": {
+      "weather": "맑음",
+      "time_of_day": "주간"
+    },
+    "sequence_of_events": [
+      "1. 오전 10시 18분경, 녹색 신호에 따라 차량들이 교차로 횡단보도를 통과하고 있었음.",
+      "2. 보행자 1명이 좌측에서 우측으로 횡단보도를 건너자, 전방에서 주행하던 검은색 SUV가 급정거하여 충돌을 피함.",
+      "3. 물리적 충돌 없이 보행자는 횡단을 완료했고, 차량은 다시 주행을 시작함."
+    ],
+    "root_cause": "차량 신호가 녹색임에도 불구하고 보행자가 좌우를 살피지 않고 횡단보도를 건너 발생한 위험 상황."
+  }
+}

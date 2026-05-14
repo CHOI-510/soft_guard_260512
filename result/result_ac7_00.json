@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "video_id": "ac7.mp4",
+    "timestamp_in_video": "00:07-00:08"
+  },
+  "event_stream": {
+    "event_title": "교차로 횡단보도 보행자-차량 충돌 사고",
+    "risk_level": 9,
+    "location_type": "교차로 횡단보도",
+    "involved_actors": [
+      "백색 SUV",
+      "보행자"
+    ],
+    "vehicleCount": 1,
+    "pedestrianCount": 3,
+    "pmCount": 0,
+    "collision_happened": true,
+    "incident_type": "collision",
+    "triggered_action": [
+      "관제센터 긴급 알림",
+      "119 자동 신고 대기"
+    ]
+  },
+  "report_data": {
+    "event_category": "차대사람",
+    "severity_category": "중대 사고",
+    "ego_vehicle_status": "신호 대기 중 정차",
+    "environmental_factors": {
+      "weather": "흐림",
+      "time_of_day": "주간"
+    },
+    "sequence_of_events": [
+      "1. 00:04, 3명의 보행자(성인 2, 아동 1)가 우측에서 좌측으로 횡단보도를 건너기 시작함.",
+      "2. 00:06, 좌측에서 직진하던 백색 SUV 차량이 횡단보도로 진입함.",
+      "3. 00:08, SUV 차량이 보행자 바로 앞에서 급정거하였고, 그 충격으로 선두에 있던 보행자가 앞으로 넘어짐."
+    ],
+    "root_cause": "차량 운전자의 전방주시 태만 및 보행자 보호 의무 위반. 차량이 횡단보도를 건너는 보행자를 미리 확인하지 못하고 진입하여 충돌 사고를 야기함."
+  }
+}

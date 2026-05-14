@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "video_id": "bc1.mp4",
+    "timestamp_in_video": "00:02"
+  },
+  "event_stream": {
+    "event_title": "주유소 진입 차량과 자전거 충돌 사고",
+    "risk_level": 9,
+    "location_type": "주유소 진입로",
+    "involved_actors": [
+      "자차",
+      "자전거"
+    ],
+    "vehicleCount": 1,
+    "pedestrianCount": 0,
+    "pmCount": 1,
+    "collision_happened": true,
+    "incident_type": "collision",
+    "triggered_action": [
+      "관제센터 긴급 알림",
+      "119 자동 신고 대기"
+    ]
+  },
+  "report_data": {
+    "event_category": "차대자전거",
+    "severity_category": "경미한 사고",
+    "ego_vehicle_status": "주유소로 저속 진입 중",
+    "environmental_factors": {
+      "weather": "맑음",
+      "time_of_day": "주간"
+    },
+    "sequence_of_events": [
+      "1. 자차(블랙박스 차량)가 주유소 내부로 진입하던 중, 좌측에서 자전거가 갑자기 나타나 차량 앞으로 주행함.",
+      "2. 00:02 시점에 자차가 자전거의 측면을 충돌함 (시스템 'DANGER!! TTC: 0.0s' 경고 발생).",
+      "3. 충돌 직후 자전거와 탑승자는 시야 밖으로 사라져 넘어졌는지 여부는 확인되지 않으나 명백한 충돌 상황임."
+    ],
+    "root_cause": "주유소 진입로에서 자전거 운전자가 전방을 제대로 확인하지 않고 진입하여 발생한 사고"
+  }
+}

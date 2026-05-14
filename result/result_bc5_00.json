@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "video_id": "bc5.mp4",
+    "timestamp_in_video": "00:08-00:09"
+  },
+  "event_stream": {
+    "event_title": "교차로 정차 차량 후방 보행자 무단횡단",
+    "risk_level": 3,
+    "location_type": "교차로",
+    "involved_actors": [
+      "일반 승용차",
+      "보행자"
+    ],
+    "vehicleCount": 1,
+    "pedestrianCount": 1,
+    "pmCount": 0,
+    "collision_happened": false,
+    "incident_type": "near_miss",
+    "triggered_action": [
+      "위험 행동 데이터 수집",
+      "관련자 주의 알림"
+    ]
+  },
+  "report_data": {
+    "event_category": "차대사람",
+    "severity_category": "아차사고",
+    "ego_vehicle_status": "제3자 시점 고정 카메라",
+    "environmental_factors": {
+      "weather": "흐림",
+      "time_of_day": "황혼/여명"
+    },
+    "sequence_of_events": [
+      "1. 00시 04초, 은색 SUV 차량이 신호를 받고 교차로 정지선에 정차함.",
+      "2. 00시 08초, 보행자 1명이 정차된 차량의 후방 사각지대에서 나타나 무단횡단을 시작함.",
+      "3. 맞은편 주행 차량이 없어 실제 충돌은 발생하지 않았으나, 시야가 가려진 상태에서의 무단횡단으로 사고 발생 가능성이 높은 상황이었음."
+    ],
+    "root_cause": "보행자의 무단횡단 및 정차 차량으로 인한 시야 차단"
+  }
+}

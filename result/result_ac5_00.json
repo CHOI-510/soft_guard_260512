@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "video_id": "ac5.mp4",
+    "timestamp_in_video": "00:05-00:07"
+  },
+  "event_stream": {
+    "event_title": "교차로 내 보행자-택시 충돌 사고",
+    "risk_level": 9,
+    "location_type": "교차로",
+    "involved_actors": [
+      "보행자",
+      "택시"
+    ],
+    "vehicleCount": 1,
+    "pedestrianCount": 1,
+    "pmCount": 0,
+    "collision_happened": true,
+    "incident_type": "collision",
+    "triggered_action": [
+      "관제센터 긴급 알림",
+      "119 자동 신고 대기"
+    ]
+  },
+  "report_data": {
+    "event_category": "차대사람",
+    "severity_category": "중대 사고",
+    "ego_vehicle_status": "교차로 신호 대기 중 정차",
+    "environmental_factors": {
+      "weather": "흐림",
+      "time_of_day": "주간"
+    },
+    "sequence_of_events": [
+      "1. 보행자가 영상 우측에서 좌측으로 차도를 건너기 시작함.",
+      "2. 우측에서 직진하던 주황색 택시가 보행자를 미처 피하지 못하고 충돌함.",
+      "3. 충격으로 보행자가 택시 앞 도로에 쓰러짐."
+    ],
+    "root_cause": "보행자의 무단횡단 및 운전자의 전방주시 태만"
+  }
+}
